@@ -7,6 +7,12 @@
 <title>Insert title here</title>
 </head>
 <body>
-	Welcome to your profile...
+	<%
+		if(session.getAttribute("username") == null)
+		{
+			response.sendRedirect("login.jsp");
+		}
+	%>
+	Welcome to your profile ${username}
 </body>
 </html>

@@ -7,6 +7,14 @@
 <title>Insert title here</title>
 </head>
 <body>
+<%
+		if(session.getAttribute("username") != null)
+		{
+			%>
+			Hello ${username} <br>	<!-- Using JSTL to print the username -->
+			<%
+		}
+	%>
 	<a href="login.jsp">Login</a><br/>	<!-- For login page -->
 	<a href="profile.jsp">Profile</a><br/> <!-- Protected page, only logged in users can access this page -->
 	<a href="videos.jsp">Videos</a>	<!-- Protected page, only logged in users can access this page -->
