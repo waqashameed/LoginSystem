@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.khaplu.dao.LoginDAO;
+
 
 @WebServlet("/Login")
 public class Login extends HttpServlet {
@@ -20,7 +22,9 @@ public class Login extends HttpServlet {
 		String uname = request.getParameter("username");
 		String pass = request.getParameter("password");
 		
-		if(uname.equals("waqas") && pass.equals("alpha"))
+		LoginDAO dao = new LoginDAO();
+		
+		if(dao.check(uname, pass))
 		{
 			HttpSession session = request.getSession();
 			session.setAttribute("username", uname);
